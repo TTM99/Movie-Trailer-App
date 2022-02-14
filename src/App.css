@@ -1,38 +1,240 @@
-.App {
-  text-align: center;
+*{
+  margin:0;
+  padding:0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #090A0E;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container{
+  width:90vw;
+  max-width:1000px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:10px;
+  /* margin-left:2vh;
+  margin-right:2vh; */
+  display:grid;
+  grid-gap:2vh;
+  grid-template-columns: repeat(4,1fr);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header{
+  width:1000px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  border:1px solid white;
+  border-radius: 1vh;
+  margin-top: 10px;
+  margin-left:auto;
+  margin-right: auto;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.app-name{
+  flex:1;
+  font-size:3.2rem;
+  color:white;
   }
-  to {
-    transform: rotate(360deg);
+
+.searchBar{
+  flex:1;
+  display: flex;
+  align-items: flex-end;
+  padding:5px;
+  justify-content: center;
+}
+
+.searchBarContainer{
+flex:3;
+display: flex;
+justify-content:center;
+cursor: pointer;
+}
+
+.searchContainer{
+  width:90%;
+  height:40px;
+  max-height: 70px;
+  border-radius: 10px;
+  background-color: grey;
+  outline:none;
+  border:none;
+  padding:0px 5px;
+}
+
+.searchContainer::placeholder {
+  color:black;
+  opacity: 1;
+}
+
+.searchContainer:focus{
+  outline:none;
+}
+
+.btn-container{
+  flex:1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  cursor:pointer;
+}
+
+.search-btn{
+  width:90%;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding:2px 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.icon-search{
+  display:flex;
+  align-items: flex-end;
+}
+
+.search-btn p{
+  font-size:1.5rem;
+  font-weight: bold;
+}
+
+.movie-search{
+  width:20vw;
+  color:white !important;
+}
+
+.text{
+  color:white;
+}
+
+.preview-movie{
+  margin-top:10px;
+}
+
+.backdrop-poster{
+  width: 100vw;
+  min-height:500px;
+  background-position:center;
+  background-size:cover;
+  display:flex;
+  align-items: flex-end;
+  justify-content:center;
+  position: relative;
+}
+
+.poster-content{
+  width:90vw;
+  min-height:200px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.movie-overview-title{
+  font-size:5rem;
+  font-weight: bold;
+}
+
+.trailer-btn{
+  padding:10px;
+  border:1px solid white;
+  width:100px;
+  background-color: black;
+  color:white;
+  cursor:pointer;
+  font-size: 15px;
+}
+
+.close-btn{
+  position: absolute;
+}
+
+.movie-overview{
+  font-size: 1.5rem;
+  letter-spacing: 0.07em;
+}
+
+.youtube-trailer{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .header{
+    width:90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 5px;
+  }
+
+  .backdrop-poster{
+    min-height:400px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container{
+    width:90vw;
+    max-width:1000px;
+    margin:auto;
+    margin-top:10px;
+    /* margin-left:2vh;
+    margin-right:2vh; */
+    display:grid;
+    grid-gap:2vh;
+    grid-template-columns: repeat(3,1fr);
+  }
+  
+  .header{
+    width:90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 3px;
+  }
+
+  .movie-overview{
+    overflow: scroll;
+  }
+
+  .backdrop-poster{
+    min-height:300px;
+  }
+}
+  
+  
+  @media screen and (max-width:550px) {
+  .container{
+    width:90vw;
+    margin:auto;
+    margin-top:10px;
+    /* margin-left:2vh;
+    margin-right:2vh; */
+    display:grid;
+    grid-gap:2vh;
+    grid-template-columns: repeat(2,1fr);
+  }
+  
+  .header{
+    width:90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 3px;
+  }
+
+  .movie-overview{
+    overflow: scroll;
+  }
+
+  .backdrop-poster{
+    min-height:300px;
   }
 }

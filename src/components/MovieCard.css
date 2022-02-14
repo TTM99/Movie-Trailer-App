@@ -1,0 +1,17 @@
+.movie-poster{
+    height:100%;
+    width:100%;
+}
+
+.movie-title{
+    font-size:1.5rem;
+    color:white;
+}
+
+.poster-path{
+    height:357px;
+    background-color: white;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
