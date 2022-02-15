@@ -95,6 +95,10 @@ const App = () => {
     }
   };
 
+  const handleChange = (e) => {
+    setSearchedMovie(e.target.value);
+  };
+
   const selectMovie = (movie) => {
     fetchMovieVideo(movie.id);
     setPlayTrailer(false);
@@ -113,13 +117,12 @@ const App = () => {
           </Button>
           <div className="searchBar">
             <div className="searchBarContainer">
-              c
               <input
                 className="searchContainer"
                 type="text"
                 value={searchedMovie}
                 placeholder="Search for Movies..."
-                onChange={(e) => setSearchedMovie(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <div className="btn-container">
