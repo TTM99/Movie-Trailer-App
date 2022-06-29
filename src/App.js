@@ -61,6 +61,7 @@ const App = () => {
       setMovieData(data.results);
       setSelectedMovie(data.results[0]);
       setLoading(false);
+      console.log(data);
     } catch {
       setLoading(true);
       console.log("Movie Not Found");
@@ -102,7 +103,7 @@ const App = () => {
         />
       );
     } else {
-      return <div>No Video Available</div>;
+      return <div className="no-video-trailer">No Video Available</div>;
     }
   };
 
@@ -190,12 +191,15 @@ const App = () => {
                   </button>
                 ) : null}
                 <div className="poster-content">
-                  <button
-                    className="trailer-btn"
-                    onClick={() => setPlayTrailer(true)}
-                  >
-                    Play Trailer
-                  </button>
+                  {selectedMovie.videos &&
+                  selectedMovie.videos.results.length > 0 ? (
+                    <button
+                      className="trailer-btn"
+                      onClick={() => setPlayTrailer(true)}
+                    >
+                      Play Trailer
+                    </button>
+                  ) : null}
                   <p className="text movie-overview-title">
                     {selectedMovie.title}
                   </p>

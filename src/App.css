@@ -1,166 +1,166 @@
-*{
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background-color: #090A0E;
+  background-color: #090a0e;
 }
 
-.container{
-  width:90vw;
-  max-width:1000px;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:10px;
+.container {
+  width: 90vw;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
   /* margin-left:2vh;
   margin-right:2vh; */
-  display:grid;
-  grid-gap:2vh;
-  grid-template-columns: repeat(4,1fr);
+  display: grid;
+  grid-gap: 2vh;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.header{
-  width:1000px;
+.header {
+  width: 1000px;
   display: flex;
   justify-content: space-between;
-  border:1px solid white;
+  border: 1px solid white;
   border-radius: 1vh;
   margin-top: 10px;
-  margin-left:auto;
+  margin-left: auto;
   margin-right: auto;
 }
 
-.app-name{
-  flex:1;
-  font-size:3.2rem;
-  color:white;
-  }
+.app-name {
+  flex: 1;
+  font-size: 3.2rem;
+  color: white;
+}
 
-.searchBar{
-  flex:1;
+.searchBar {
+  flex: 1;
   display: flex;
   align-items: flex-end;
-  padding:5px;
+  padding: 5px;
   justify-content: center;
 }
 
-.searchBarContainer{
-flex:3;
-display: flex;
-justify-content:center;
+.searchBarContainer {
+  flex: 3;
+  display: flex;
+  justify-content: center;
 }
 
-.searchContainer{
-  width:90%;
-  height:40px;
+.searchContainer {
+  width: 90%;
+  height: 40px;
   max-height: 70px;
   border-radius: 10px;
   background-color: grey;
-  outline:none;
-  border:none;
-  padding:0px 5px;
+  outline: none;
+  border: none;
+  padding: 0px 5px;
 }
 
-.searchContainer:hover{
+.searchContainer:hover {
   cursor: pointer;
 }
 
 .searchContainer::placeholder {
-  color:black;
+  color: black;
   opacity: 1;
 }
 
-.searchContainer:focus{
-  outline:none;
+.searchContainer:focus {
+  outline: none;
 }
 
-.btn-container{
-  flex:1;
+.btn-container {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.search-btn{
-  width:90%;
+.search-btn {
+  width: 90%;
   background-color: white;
   border: 1px solid white;
   border-radius: 5px;
-  padding:2px 5px;
+  padding: 2px 5px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.icon-search{
-  display:flex;
+.icon-search {
+  display: flex;
   align-items: flex-end;
 }
 
-.search-btn p{
-  font-size:1.5rem;
+.search-btn p {
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
-.movie-search{
-  width:20vw;
-  color:white !important;
+.movie-search {
+  width: 20vw;
+  color: white !important;
 }
 
-.text{
-  color:white;
+.text {
+  color: white;
 }
 
-.preview-movie{
-  margin-top:10px;
+.preview-movie {
+  margin-top: 10px;
 }
 
-.backdrop-poster{
+.backdrop-poster {
   width: 100vw;
-  min-height:500px;
-  background-position:center;
-  background-size:cover;
-  display:flex;
+  min-height: 500px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
   align-items: flex-end;
-  justify-content:center;
+  justify-content: center;
   position: relative;
 }
 
-.poster-content{
-  width:90vw;
-  min-height:200px;
-  display:flex;
+.poster-content {
+  width: 90vw;
+  min-height: 200px;
+  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.movie-overview-title{
-  font-size:5rem;
+.movie-overview-title {
+  font-size: 5rem;
   font-weight: bold;
 }
 
-.trailer-btn{
-  padding:10px;
-  border:1px solid white;
-  width:100px;
+.trailer-btn {
+  padding: 10px;
+  border: 1px solid white;
+  width: 100px;
   background-color: black;
-  color:white;
-  cursor:pointer;
-  font-size:1.5rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
-.close-btn{
+.close-btn {
   position: absolute;
 }
 
-.movie-overview{
+.movie-overview {
   font-size: 1.5rem;
   letter-spacing: 0.07em;
 }
 
-.youtube-trailer{
+.youtube-trailer {
   position: absolute;
   left: 0;
   right: 0;
@@ -168,116 +168,122 @@ justify-content:center;
   bottom: 0;
 }
 
+.no-video-trailer {
+  height: 400px;
+  width: 400px;
+  background-color: white;
+  position: absolute;
+}
+
 @media screen and (max-width: 1000px) {
-  .header{
-    width:90vw;
+  .header {
+    width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 5px;
   }
 
-  .backdrop-poster{
-    min-height:400px;
+  .backdrop-poster {
+    min-height: 400px;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .container{
-    width:90vw;
-    max-width:1000px;
-    margin:auto;
-    margin-top:10px;
+  .container {
+    width: 90vw;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 10px;
     /* margin-left:2vh;
     margin-right:2vh; */
-    display:grid;
-    grid-gap:2vh;
-    grid-template-columns: repeat(3,1fr);
+    display: grid;
+    grid-gap: 2vh;
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  .header{
-    width:90vw;
+
+  .header {
+    width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 3px;
   }
 
-  .movie-overview{
+  .movie-overview {
     overflow: scroll;
   }
 
-  .backdrop-poster{
-    min-height:300px;
+  .backdrop-poster {
+    min-height: 300px;
   }
 
-  .app-name{
-    font-size:3rem;
-    }
+  .app-name {
+    font-size: 3rem;
+  }
 
-    .search-btn p{
-      font-size:1.2rem;  
-    }
+  .search-btn p {
+    font-size: 1.2rem;
+  }
 
-    .movie-overview-title{
-      font-size:3rem;
-    }
+  .movie-overview-title {
+    font-size: 3rem;
+  }
 
-    .movie-overview{
-      font-size: 1.5rem;
-    }
+  .movie-overview {
+    font-size: 1.5rem;
+  }
 
-    .trailer-btn{
-      font-size: 1.3rem;
-    }
+  .trailer-btn {
+    font-size: 1.3rem;
+  }
 }
-  
-  
-  @media screen and (max-width:550px) {
-  .container{
-    width:90vw;
-    margin:auto;
-    margin-top:10px;
+
+@media screen and (max-width: 550px) {
+  .container {
+    width: 90vw;
+    margin: auto;
+    margin-top: 10px;
     /* margin-left:2vh;
     margin-right:2vh; */
-    display:grid;
-    grid-gap:2vh;
-    grid-template-columns: repeat(2,1fr);
+    display: grid;
+    grid-gap: 2vh;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .header{
-    width:90vw;
+
+  .header {
+    width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 3px;
   }
 
-  .movie-overview{
+  .movie-overview {
     overflow: scroll;
   }
 
-  .backdrop-poster{
-    min-height:300px;
+  .backdrop-poster {
+    min-height: 300px;
   }
 
-  .app-name{
-    font-size:3rem;
-    }
+  .app-name {
+    font-size: 3rem;
+  }
 
-    .search-btn p{
-      font-size:1.2rem;  
-    }
+  .search-btn p {
+    font-size: 1.2rem;
+  }
 
-    .movie-overview-title{
-      font-size:2.5rem;
-    }
+  .movie-overview-title {
+    font-size: 2.5rem;
+  }
 
-    .movie-overview{
-      font-size: 1.2rem;
-    }
+  .movie-overview {
+    font-size: 1.2rem;
+  }
 
-    .trailer-btn{
-      font-size: 1.3rem;
-    }
+  .trailer-btn {
+    font-size: 1.3rem;
+  }
 }
