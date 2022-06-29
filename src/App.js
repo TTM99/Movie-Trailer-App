@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "./components/MovieCard";
 import { Button } from "@mui/material";
-import useStyles from "./styles";
 import { ThemeProvider } from "@mui/styles";
 import theme from "./theme";
 import YouTube from "react-youtube";
@@ -26,38 +25,50 @@ const App = () => {
     API_KEY +
     "&language=en-US&page=1&include_adult=false";
 
-  const classes = useStyles();
   const [movieData, setMovieData] = useState([]);
   const [searchedMovie, setSearchedMovie] = useState("");
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [playTrailer, setPlayTrailer] = useState(false);
-  const [helperTextMsg, setHelperTextMsg] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getData = async () => {
-    //destructing the data
-    const { data } = await axios.get(`${DISCOVER_API}`);
-    setHelperTextMsg(false);
-    setMovieData(data.results);
-    console.log(data.results);
-    // setSelectedMovie(movieData[0]);
-    setSelectedMovie(data.results[0]);
-    fetchMovieVideo(data.results[0].id);
-    console.log(selectedMovie);
+    try {
+      setLoading(true);
+      //destructing the data
+      const { data } = await axios.get(`${DISCOVER_API}`);
+      setMovieData(data.results);
+      console.log(data.results);
+      // setSelectedMovie(movieData[0]);
+      setSelectedMovie(data.results[0]);
+      fetchMovieVideo(data.results[0].id);
+      setLoading(false);
+      console.log(selectedMovie);
+      console.log("data");
+    } catch {
+      setLoading(true);
+      console.log("Error");
+    }
   };
 
   const searchMovie = async () => {
-    const { data } = await axios.get(`${SEARCH_API}`, {
-      params: {
-        query: searchedMovie,
-      },
-    });
-    setMovieData(data.results);
-    setSelectedMovie(data.results[0]);
-    setHelperTextMsg(false);
+    setLoading(true);
+    try {
+      const { data } = await axios.get(`${SEARCH_API}`, {
+        params: {
+          query: searchedMovie,
+        },
+      });
+      setMovieData(data.results);
+      setSelectedMovie(data.results[0]);
+      setLoading(false);
+    } catch {
+      setLoading(true);
+      console.log("Movie Not Found");
+    }
   };
 
   const onSearch = () => {
-    searchedMovie == "" ? setHelperTextMsg(true) : searchMovie();
+    searchedMovie === "" ? alert("Movie Name cannot be empty") : searchMovie();
   };
 
   const fetchMovieVideo = async (id) => {
@@ -106,6 +117,7 @@ const App = () => {
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -135,45 +147,75 @@ const App = () => {
             </div>
           </div>
         </div>
-        {selectedMovie === null ? (
-          <div>Loading...</div>
+        {loading === true ? (
+          <div
+            style={{
+              color: "white",
+              margin: "auto",
+              width: "250px",
+              fontSize: "30px",
+              marginTop: "40px",
+            }}
+          >
+            Loading...
+          </div>
+        ) : movieData.length === 0 ? (
+          <div
+            style={{
+              color: "white",
+              margin: "auto",
+              width: "250px",
+              fontSize: "30px",
+              marginTop: "40px",
+            }}
+          >
+            No Movies Found
+          </div>
         ) : (
-          <div className="preview-movie">
-            <div
-              className="backdrop-poster"
-              style={{
-                backgroundImage: `url(https://image.tmdb.org/t/p/original/${selectedMovie.backdrop_path})`,
-              }}
-            >
-              {selectedMovie.videos && playTrailer ? MovieTrailer() : null}
-              {playTrailer ? (
-                <button
-                  className="trailer-btn close-btn"
-                  onClick={() => setPlayTrailer(false)}
-                >
-                  Close
-                </button>
-              ) : null}
-              <div className="poster-content">
-                <button
-                  className="trailer-btn"
-                  onClick={() => setPlayTrailer(true)}
-                >
-                  Play Trailer
-                </button>
-                <p className="text movie-overview-title">
-                  {selectedMovie.title}
-                </p>
-                <p className="text movie-overview">{selectedMovie.overview}</p>
+          <div>
+            <div className="preview-movie">
+              <div
+                className="backdrop-poster"
+                style={{
+                  backgroundImage: `url(https://image.tmdb.org/t/p/original/${selectedMovie.backdrop_path})`,
+                }}
+              >
+                {selectedMovie.videos && playTrailer ? MovieTrailer() : null}
+                {playTrailer ? (
+                  <button
+                    className="trailer-btn close-btn"
+                    onClick={() => setPlayTrailer(false)}
+                  >
+                    Close
+                  </button>
+                ) : null}
+                <div className="poster-content">
+                  <button
+                    className="trailer-btn"
+                    onClick={() => setPlayTrailer(true)}
+                  >
+                    Play Trailer
+                  </button>
+                  <p className="text movie-overview-title">
+                    {selectedMovie.title}
+                  </p>
+                  <p className="text movie-overview">
+                    {selectedMovie.overview}
+                  </p>
+                </div>
               </div>
+            </div>
+            <div className="container">
+              {movieData.map((movie) => (
+                <MovieCard
+                  key={movie.id}
+                  movie={movie}
+                  selectMovie={selectMovie}
+                />
+              ))}
             </div>
           </div>
         )}
-        <div className="container">
-          {movieData.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} selectMovie={selectMovie} />
-          ))}
-        </div>
       </div>
     </ThemeProvider>
   );
