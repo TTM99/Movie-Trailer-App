@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Movie-Trailer-App/static/css/main.781b8ccf.css",
-    "main.js": "/Movie-Trailer-App/static/js/main.25bbdd36.js",
+    "main.css": "/Movie-Trailer-App/static/css/main.af3bda6c.css",
+    "main.js": "/Movie-Trailer-App/static/js/main.02c101fc.js",
     "index.html": "/Movie-Trailer-App/index.html",
-    "main.781b8ccf.css.map": "/Movie-Trailer-App/static/css/main.781b8ccf.css.map",
-    "main.25bbdd36.js.map": "/Movie-Trailer-App/static/js/main.25bbdd36.js.map"
+    "main.af3bda6c.css.map": "/Movie-Trailer-App/static/css/main.af3bda6c.css.map",
+    "main.02c101fc.js.map": "/Movie-Trailer-App/static/js/main.02c101fc.js.map"
   },
   "entrypoints": [
-    "static/css/main.781b8ccf.css",
-    "static/js/main.25bbdd36.js"
+    "static/css/main.af3bda6c.css",
+    "static/js/main.02c101fc.js"
   ]
 }
